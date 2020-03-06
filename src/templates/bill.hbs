@@ -1,0 +1,133 @@
+<body>
+    <header>
+        <img src="https://pngimage.net/wp-content/uploads/2018/06/logo-online-shop-png-2.png" alt="logo-empresa" />
+        <div>
+            <h1>Online Shop S.A.</h1>
+            <p class="address">6A Avenida 13-54, Guatemala 01007</p>
+        </div>
+        <div>
+            <p class="serie">Factura de Pequeño Contribuyente Serie "A"</p>
+            <p class="no-bill">{{no_bill}}</p>
+            <p class="nit">NIT: 12345-9</p>
+        </div>
+    </header>
+    <section>
+        <p>Fecha: {{dateFormat date 'DD/MM/YY'}}</p>
+        <div style="display: flex; margin: 0">
+            <p style="margin: 0 0 0 0">Nombre: {{name}}</p>
+            <p style="margin: 0 0 0 16px">NIT: {{nit}}</p>
+        </div>
+        <p>Direccion: {{address}}</p>
+    </section>
+    <table>
+        <tr>
+            <th class="cuantity">
+                Cantidad
+            </th>
+            <th class="concept">
+                Concepto
+            </th>
+            <th class="value">
+                Valor
+            </th>
+        <tr>
+            {{#each product}}
+        <tr class="product-row">
+            <td>{{this.cuantity}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.total}}</td>
+        </tr>
+        {{/each}}
+        <tr class="total">
+            <td colspan="2" class="title">Total</td>
+            <td class="price">200</td>
+        </tr>
+    </table>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Cinzel:400,700,900&display=swap');
+</style>
+
+<style>
+    * {
+        font-family: 'Cinzel', serif;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-around
+    }
+
+    header img {
+
+        width: 100px;
+        height: 100px;
+
+    }
+
+    header h1 {
+
+        color: green;
+        margin-bottom: 0
+    }
+
+    header .no-bill {
+        color: red;
+        font-size: 24px
+    }
+
+    table {
+
+        width: 95%;
+        height: 50px;
+        margin: auto;
+
+    }
+
+    .concept {
+
+        border: 1px solid black;
+        margin: 8px;
+        border-radius: 8px
+    }
+
+    .cuantity {
+
+        width: 15%;
+        border: 1px solid black;
+        margin: 8px;
+        border-radius: 8px
+    }
+
+    .value {
+
+        width: 20%;
+        border: 1px solid black;
+        margin: 8px;
+        border-radius: 8px
+    }
+
+    .product-row td {
+
+        text-align: center
+    }
+
+    .total .title {
+
+        text-align: right;
+        font-weight: bold;
+        border: 1px solid black;
+        margin: 8px;
+        border-radius: 8px;
+        padding-right: 8px
+    }
+
+    .total .price {
+
+        text-align: center;
+        border: 1px solid black;
+        margin: 8px;
+        border-radius: 8px
+    }
+</style>

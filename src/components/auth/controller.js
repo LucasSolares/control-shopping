@@ -19,7 +19,7 @@ async function hackMatrix() {
 async function signUp(email = '', password = '', rol, name = '', lastName = '', NIT = '', address = '') {
 
     try {
-        email = email.trim()
+        email = email.trim().toLowerCase()
         password = password.trim()
         name = name.trim()
         lastName = lastName.trim()
@@ -70,7 +70,7 @@ async function updateCredential(_id, email = '', password = '', rol, name = '', 
     let userToUpdate = {}
 
     try {
-        email = email.trim()
+        email = email.trim().toLowerCase()
         password = password.trim()
         name = name.trim()
         lastName = lastName.trim()

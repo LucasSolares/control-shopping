@@ -1,7 +1,9 @@
-// const productRouter = require('../components/product/network')
+const productsRouter = require('../components/product/network')
 const routerAuths = require('../components/auth/network')
+const routerCategories = require('../components/category/network')
 
 exports.createRouting = (app) => {
-    // app.use('/product', productRouter)
+    app.use('/product', productsRouter)
     app.use('/auth', routerAuths)
+    app.use('/category', routerCategories)
 }

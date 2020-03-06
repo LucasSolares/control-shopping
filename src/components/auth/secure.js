@@ -62,7 +62,7 @@ exports.checkAuth = (action) => {
                     next()
                     break
                 default:
-                    throw { message: 'Not implemented yet' }
+                    next()
             }
         } catch (error) {
             console.error(error)
