@@ -1,7 +1,7 @@
 // const productRouter = require('../components/product/network')
-const pruebaBill = require('../components/bill/index')
+const routerAuths = require('../components/auth/network')
 
 exports.createRouting = (app) => {
     // app.use('/product', productRouter)
-    app.use('/bill', pruebaBill)
+    app.use('/auth', routerAuths)
 }

@@ -13,10 +13,11 @@ const schema = new Schema({
         default: Rol.Client
     },
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: true
-    },
+        name: String,
+        lastName: String,
+        NIT: String,
+        address: String
+    }
 })
 
 module.exports = mongoose.model('auth', schema)

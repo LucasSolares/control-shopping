@@ -20,7 +20,7 @@ exports.signUp = async (credential) => {
 
 exports.signIn = async (email) => {
     try {
-        const userExists = await Model.findOne({ email }, { email: 1, password: 1 })
+        const userExists = await Model.findOne({ email }, { email: 1, password: 1, rol: 1 })
         if (!userExists) {
             throw { message: `User with email ${email} not founded`, code: 401 }
         }
@@ -33,7 +33,7 @@ exports.signIn = async (email) => {
 
 exports.deleteCredential = async (_id) => {
     try {
-        const credentialDeleted = await Model.findOneAndDelete(_id)
+        const credentialDeleted = await Model.findByIdAndDelete(_id)
         if (!credentialDeleted) {
             throw { message: `User with id ${_id} not founded`, code: 404 }
         }
@@ -47,10 +47,19 @@ exports.deleteCredential = async (_id) => {
 exports.updateCredential = async (_id, credentialToUpdate) => {
     try {
         const credentialUpdated = await Model.findOneAndUpdate(_id, credentialToUpdate, {new: true})
-        if (!credentialDeleted) {
+        if (!credentialUpdated) {
             throw { message: `User with id ${_id} not founded`, code: 404 }
         }
         return credentialUpdated
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
+}
+
+exports.listCredentials = async (filter) => {
+    try {
+        return await Model.find(filter)
     } catch (error) {
         console.error(error)
         throw error
