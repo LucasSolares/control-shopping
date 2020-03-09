@@ -7,7 +7,7 @@
         </div>
         <div>
             <p class="serie">Factura de Pequeño Contribuyente Serie "A"</p>
-            <p class="no-bill">{{no_bill}}</p>
+            <p class="no-bill">    NO:   {{no_bill}}</p>
             <p class="nit">NIT: 12345-9</p>
         </div>
     </header>
@@ -31,16 +31,16 @@
                 Valor
             </th>
         <tr>
-            {{#each product}}
+            {{#each products}}
         <tr class="product-row">
             <td>{{this.cuantity}}</td>
             <td>{{this.name}}</td>
-            <td>{{this.total}}</td>
+            <td>{{this.subtotal}} GTQ</td>
         </tr>
         {{/each}}
         <tr class="total">
             <td colspan="2" class="title">Total</td>
-            <td class="price">200</td>
+            <td class="price">{{ total }}</td>
         </tr>
     </table>
 </body>

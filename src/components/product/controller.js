@@ -44,7 +44,7 @@ async function listProducts(category, name = '', orderBy, outOfStock) {
         } else if (category) {
             filter.category = category
         } else if (name) {
-            filter.name = { $regex: `.*${name}.*` }
+            filter.name = { $regex: `.*${name}.*`, $options: 'i' }
         } else if (outOfStock) {
             filter.cuantity = 0
         }

@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const dotEnv = require('dotenv')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const path = require('path')
 
 dotEnv.config()
 
@@ -16,6 +17,8 @@ function startExpress() {
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(cors())
+    app.use(express.static(path.join(process.cwd(), 'public')))
+
     routing.createRouting(app)
 
     app.listen(config.APP_PORT, () => {
@@ -28,8 +31,8 @@ function startExpress() {
 async function connectMongo() {
 
     try {
-
         await mongoose.connect(config.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+        
         process.on('beforeExit', async () => {
             await mongoose.disconnect()
         })
